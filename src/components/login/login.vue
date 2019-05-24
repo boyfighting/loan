@@ -34,6 +34,13 @@ export default {
       }
       const phon = localStorage.getItem('phone');
       const pass = localStorage.getItem('password');
+      if (!phon) {
+        this.$Message({
+          message: '手机号不存在，请注册',
+          duration: 2000
+        });
+        return;
+      }
       if (this.phone !== phon || this.password !== pass) {
         this.$Message({
           message: '手机号或者密码不正确',
