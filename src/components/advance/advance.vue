@@ -18,7 +18,7 @@
     </div>
     <div class="formItem">
       <label class="label">贷款用途</label>
-      <el-input type="number" class="input"></el-input>
+      <el-input v-model="use" class="input"></el-input>
     </div>
 
     <el-button class="button" type="primary" @click="toRepayPlan">下一步</el-button>
@@ -57,7 +57,8 @@ export default {
       term: '12',
       number: '',
       quota: '',
-      account: ''
+      account: '',
+      use: ''
     };
   },
   created() {

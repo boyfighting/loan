@@ -4,19 +4,19 @@
     <p class="title special">基本信息</p>
     <div class="formItem">
       <label class="label">姓名</label>
-      <el-input class="input"></el-input>
+      <el-input class="input" v-model="name"></el-input>
     </div>
     <div class="formItem">
       <label class="label">证件类型</label>
-      <el-input class="input"></el-input>
+      <el-input class="input" v-model="type"></el-input>
     </div>
     <div class="formItem">
       <label class="label">证件号</label>
-      <el-input class="input"></el-input>
+      <el-input class="input" v-model="card"></el-input>
     </div>
     <div class="formItem">
       <label class="label">年龄</label>
-      <el-input class="input"></el-input>
+      <el-input class="input" v-model="age"></el-input>
     </div>
     <p class="title">户口性质</p>
     <div class="formItem special">
@@ -28,11 +28,11 @@
     </div>
     <div class="formItem">
       <label class="label">常用手机号</label>
-      <el-input class="input"></el-input>
+      <el-input class="input" v-model="phone"></el-input>
     </div>
     <div class="formItem">
       <label class="label">常驻地址</label>
-      <el-input class="input"></el-input>
+      <el-input class="input" v-model="address"></el-input>
     </div>
     <p class="title">教育程度</p>
     <div class="formItem">
@@ -153,9 +153,21 @@ export default {
           label: '博士研究生'
         }
       ],
-      educate: '',
-      education: ''
+      educate: 'C',
+      education: '8',
+      name: '',
+      type: '二代身份证',
+      card: '',
+      age: '26',
+      phone: '',
+      address: ''
     };
+  },
+  created() {
+    this.name = localStorage.getItem('name');
+    this.card = localStorage.getItem('card');
+    this.phone = localStorage.getItem('phone');
+    this.address = localStorage.getItem('address');
   },
   methods: {
     addFamilyInfo() {

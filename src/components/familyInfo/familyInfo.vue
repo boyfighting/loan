@@ -32,11 +32,11 @@
     </div>
     <div class="formItem">
       <label class="label">家庭联系电话</label>
-      <el-input class="input"></el-input>
+      <el-input type="number" class="input"></el-input>
     </div>
     <div class="formItem">
       <label class="label">家庭月收入</label>
-      <el-input class="input"></el-input>
+      <el-input @change="change" v-model="income" class="input"></el-input>
     </div>
 
     <el-button class="button" type="primary" @click="addWorkInfo">下一步</el-button>
@@ -70,7 +70,8 @@ export default {
           label: '离异'
         }
       ],
-      matrimony: '1'
+      matrimony: '1',
+      income: ''
     };
   },
   methods: {
@@ -79,6 +80,9 @@ export default {
     },
     select() {
       this.matrimony === '2' ? (this.isMarry = true) : (this.isMarry = false);
+    },
+    change() {
+      this.income = this.income + '(元/月)';
     }
   }
 };

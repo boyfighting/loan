@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="textTips">
-      <h2>授信过程</h2>
+      <h2 class="title">授信过程</h2>
       <p class="text">
         <span class="space"></span>为了保证能更好的的为您提供服务，需要进行贷款前必要的授信认证流程。在认证之前，请您准备好以下材料：
         <br>
@@ -54,6 +54,7 @@ h2 {
   font-weight: 400;
   letter-spacing: 4px;
   padding: 10px 0;
+  font-size: 18px;
 }
 .text {
   text-align: left;

@@ -25,7 +25,22 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log(this.phone);
+      if (!this.phone || this.phone.length !== 11) {
+        this.$Message({
+          message: '手机号不能为空',
+          duration: 2000
+        });
+        return;
+      }
+      const phon = localStorage.getItem('phone');
+      const pass = localStorage.getItem('password');
+      if (this.phone !== phon || this.password !== pass) {
+        this.$Message({
+          message: '手机号或者密码不正确',
+          duration: 2000
+        });
+        return;
+      }
       this.$router.push('/home');
     },
     toRegister() {
@@ -46,6 +61,9 @@ export default {
   border-left: none;
   border-right: none;
   border-radius: 0;
+}
+.el-message.el-message--info {
+  min-width: 120px;
 }
 </style>
 

@@ -3,7 +3,7 @@
     <Header :title="title" :hasLeftArow="hasLeftArow"></Header>
     <div class="formItem">
       <label class="label">姓名</label>
-      <el-input class="input"></el-input>
+      <el-input class="input" type="text"></el-input>
     </div>
     <div class="formItem">
       <label class="label">与申请人关系</label>
@@ -24,11 +24,11 @@
     </div>
     <div class="formItem">
       <label class="label">证件号码</label>
-      <el-input class="input"></el-input>
+      <el-input type="number" class="input"></el-input>
     </div>
     <div class="formItem">
       <label class="label">联系电话</label>
-      <el-input class="input"></el-input>
+      <el-input type="number" class="input"></el-input>
     </div>
 
     <el-button class="button" type="primary" @click="addBankCard">下一步</el-button>
@@ -99,7 +99,8 @@ export default {
   methods: {
     addBankCard() {
       this.$router.push('/addBankCard');
-    }
+    },
+    select() {}
   }
 };
 </script>

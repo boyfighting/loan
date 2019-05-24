@@ -9,7 +9,8 @@ import {
   RadioGroup,
   Select,
   Option,
-  Icon
+  Icon,
+  Message
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
@@ -23,3 +24,4 @@ Vue.use(RadioGroup);
 Vue.use(Select);
 Vue.use(Option);
 Vue.use(Icon);
+Vue.prototype.$Message = Message;

@@ -14,7 +14,7 @@
       ></el-input>
       <el-input class="input" type="password" v-model="confirmPass" placeholder="请确认密码"></el-input>
       <div class="check">
-        <el-checkbox class="checkbox"></el-checkbox>
+        <el-checkbox :checked="check" class="checkbox" @change="checkChange"></el-checkbox>
         <span class="tips">《用户协议》《其他需要用户在注册时同意的协议》</span>
       </div>
 
@@ -31,11 +31,38 @@ export default {
       phone: '',
       code: '',
       password: '',
-      confirmPass: ''
+      confirmPass: '',
+      check: true
     };
   },
   methods: {
+    checkChange() {
+      this.check = !this.check;
+    },
     onSubmit() {
+      if (!this.phone || this.phone.length !== 11) {
+        this.$Message({
+          message: '手机号不能为空',
+          duration: 2000
+        });
+        return;
+      }
+      if (!this.check) {
+        this.$Message({
+          message: '请同意用户协议',
+          duration: 2000
+        });
+        return;
+      }
+      if (this.password !== this.confirmPass) {
+        this.$Message({
+          message: '两次密码输入不同',
+          duration: 2000
+        });
+        return;
+      }
+      localStorage.setItem('phone', this.phone);
+      localStorage.setItem('password', this.password);
       this.goLoginPage();
     },
     goLoginPage() {
